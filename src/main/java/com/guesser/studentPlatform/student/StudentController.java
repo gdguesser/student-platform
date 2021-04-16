@@ -3,6 +3,9 @@ package com.guesser.studentPlatform.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -19,6 +22,13 @@ public class StudentController {
     @GetMapping
     public List<Student> getStudent() {
         return studentService.getStudent();
+    }
+
+    @GetMapping(path = "{studentId}")
+    public Student getStudentById(@PathVariable("studentId") Long studentId) {
+        return studentService.getStudent().stream().filter(student -> studentId.equals(student.getId()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Student " + studentId + " does not exist."));
     }
 
     @PostMapping
