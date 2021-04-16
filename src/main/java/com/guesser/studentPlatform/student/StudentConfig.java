@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.guesser.studentPlatform.student;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

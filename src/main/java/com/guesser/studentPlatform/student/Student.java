@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.guesser.studentPlatform.student;
 
 import javax.persistence.*;
 import java.time.LocalDate;
